@@ -18,9 +18,9 @@ import net.minecraft.world.phys.BlockHitResult;
  * Red Goo (Cleaner) — converts other goo to itself, then self-destructs. Port of {@code BlockCleaner}.
  */
 public class RedCleanerBlock extends GooBlock {
-    /** Random despawn window: 0.5s–1.5s (10–30 ticks at 20 TPS). */
-    private static final int CLEAN_DELAY_MIN_TICKS = 10;
-    private static final int CLEAN_DELAY_MAX_TICKS = 30;
+    /** Random despawn window: 0.7s–1.7s (14–34 ticks at 20 TPS). */
+    private static final int CLEAN_DELAY_MIN_TICKS = 14;
+    private static final int CLEAN_DELAY_MAX_TICKS = 34;
 
     public RedCleanerBlock(Properties properties) {
         super(properties);
