@@ -2,15 +2,17 @@ package com.brenknigh.greygoo;
 
 import org.slf4j.Logger;
 
+import com.brenknigh.greygoo.core.GooProtection;
 import com.brenknigh.greygoo.core.SpreadLimiter;
 import com.brenknigh.greygoo.event.GooTickHandler;
+import com.brenknigh.greygoo.registry.GreyGooBlocks;
+import com.brenknigh.greygoo.registry.ModCreativeTabs;
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod(GreyGooMod.MOD_ID)
@@ -25,6 +27,11 @@ public class GreyGooMod {
     public GreyGooMod(IEventBus modEventBus, ModContainer modContainer) {
         instance = this;
         modEventBus.addListener(this::commonSetup);
+
+        GreyGooBlocks.BLOCKS.register(modEventBus);
+        GreyGooBlocks.ITEMS.register(modEventBus);
+        ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
+
         modContainer.registerConfig(ModConfig.Type.COMMON, GreyGooConfig.SPEC);
         GooTickHandler.register();
     }
@@ -38,6 +45,7 @@ public class GreyGooMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("Grey Goo port loading — upstream reference in /source");
+        event.enqueueWork(GooProtection::init);
+        LOGGER.info("Grey Goo port loaded — place Green, Orange, and Red goo from the creative tab");
     }
 }

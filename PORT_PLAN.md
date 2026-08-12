@@ -20,29 +20,29 @@ Documentation in `source/` was written to enable faithful reimplementation. Read
 - [x] Core utilities: `CoordHolder`, `SpreadHelper`, `SpreadLimiter`, `GooSpreadCategory`
 - [x] Config for spread scale values (ported from `mod_GreyGoo` config fields)
 - [x] Tick handler to reset spread counters each server tick
-- [ ] Verify `gradlew build` on dev machine
+- [x] Verify `gradlew build` on dev machine
 
 ## Phase 1 — Registries and assets
 
-- [ ] DeferredRegister for blocks, items, block entities, entities
-- [ ] Creative tab
-- [ ] Convert `GooBlockTextures.png` / `GooItemTextures.png` to per-block JSON models
-- [ ] Lang file from original display names (note naming quirks: `BlockGreyEater` = "GreyGoo", `BlockGreyGoo` = "PurpleGoo")
+- [x] DeferredRegister for blocks, items, block entities, entities
+- [x] Creative tab
+- [x] Convert `GooBlockTextures.png` / `GooItemTextures.png` to per-block JSON models (first 3 blocks)
+- [x] Lang file from original display names (note naming quirks: `BlockGreyEater` = "GreyGoo", `BlockGreyGoo` = "PurpleGoo")
 
 ## Phase 2 — Core goo infrastructure
 
-- [ ] `GooProtection` — `gooNeverEatThese`, `cleanerList`, `mineTheseOnly`, `NeverRestoreThese`
+- [x] `GooProtection` — `gooNeverEatThese`, `cleanerList`, `mineTheseOnly`, `NeverRestoreThese` (partial — grows with blocks)
 - [ ] `GooActivation` — global flags for activation-required goo (Bubble, Freezer, Orange-*, Rapid-*)
-- [ ] `GooWorldData` — NBT persistence (`TGDbloom`, `GooActive`, `FreezerTexture`) via `SavedData`
-- [ ] `isGooActive()` — EMP array gating
+- [x] `GooWorldData` — NBT persistence (`TGDbloom`, `GooActive`, `FreezerTexture`) via `SavedData`
+- [x] `isGooActive()` — EMP array gating (EMP stub pending)
 
 ## Phase 3 — Autonomous goo blocks
 
 Port in order of dependency / testability:
 
-1. Green Goo (Inert) — anchor, no spread
-2. Orange Wall — barrier spread from anchors
-3. Red Goo (Cleaner) — counter to all goo
+1. [x] Green Goo (Inert) — anchor, no spread
+2. [x] Orange Wall — barrier spread from anchors
+3. [x] Red Goo (Cleaner) — counter to all goo
 4. Purple Goo (`BlockGreyGoo`) — basic spread + column collapse
 5. Grey Goo (`BlockGreyEater`) — main spreader, metadata tints, Cancer mutation
 6. Blue / White / Miner / Yellow goo — specialized eaters
