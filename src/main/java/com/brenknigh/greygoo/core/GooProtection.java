@@ -34,6 +34,9 @@ public final class GooProtection {
         CLEANER_TARGETS.add(GreyGooBlocks.ORANGE_GOO.get());
         CLEANER_TARGETS.add(GreyGooBlocks.RED_GOO.get());
         CLEANER_TARGETS.add(GreyGooBlocks.PURPLE_GOO.get());
+        CLEANER_TARGETS.add(GreyGooBlocks.BLUE_GOO.get());
+        CLEANER_TARGETS.add(GreyGooBlocks.WHITE_GOO.get());
+        CLEANER_TARGETS.add(GreyGooBlocks.BROWN_GOO.get());
 
         MINE_THESE_ONLY.add(Blocks.GRAVEL);
         MINE_THESE_ONLY.add(Blocks.STONE);

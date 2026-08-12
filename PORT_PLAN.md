@@ -45,7 +45,7 @@ Port in order of dependency / testability:
 3. [x] Red Goo (Cleaner) — counter to all goo
 4. [x] Purple Goo (`BlockGreyGoo`) — basic spread + column collapse
 5. Grey Goo (`BlockGreyEater`) — main spreader, metadata tints, Cancer mutation
-6. Blue / White / Miner / Yellow goo — specialized eaters
+6. [x] Blue / White / Miner goo — specialized eaters (Yellow still pending)
 7. Destroyer chain: Cancer → Black → Cancer 2 → TGD → TGD Inert
 
 ## Phase 4 — Activation-required goo

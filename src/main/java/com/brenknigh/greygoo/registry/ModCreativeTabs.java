@@ -23,6 +23,9 @@ public final class ModCreativeTabs {
                         output.accept(GreyGooBlocks.ORANGE_GOO_ITEM.get());
                         output.accept(GreyGooBlocks.RED_GOO_ITEM.get());
                         output.accept(GreyGooBlocks.PURPLE_GOO_ITEM.get());
+                        output.accept(GreyGooBlocks.BLUE_GOO_ITEM.get());
+                        output.accept(GreyGooBlocks.WHITE_GOO_ITEM.get());
+                        output.accept(GreyGooBlocks.BROWN_GOO_ITEM.get());
                     })
                     .build());
 

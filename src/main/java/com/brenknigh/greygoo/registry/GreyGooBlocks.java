@@ -1,10 +1,13 @@
 package com.brenknigh.greygoo.registry;
 
 import com.brenknigh.greygoo.GreyGooMod;
+import com.brenknigh.greygoo.block.BlueGooBlock;
+import com.brenknigh.greygoo.block.BrownGooBlock;
 import com.brenknigh.greygoo.block.GreenInertBlock;
 import com.brenknigh.greygoo.block.OrangeWallBlock;
 import com.brenknigh.greygoo.block.PurpleGooBlock;
 import com.brenknigh.greygoo.block.RedCleanerBlock;
+import com.brenknigh.greygoo.block.WhiteGooBlock;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -34,10 +37,22 @@ public final class GreyGooBlocks {
     public static final DeferredBlock<PurpleGooBlock> PURPLE_GOO = BLOCKS.register("purple_goo",
             () -> new PurpleGooBlock(blockProperties(MapColor.COLOR_PURPLE, 0.0F).lightLevel(state -> 9)));
 
+    public static final DeferredBlock<BlueGooBlock> BLUE_GOO = BLOCKS.register("blue_goo",
+            () -> new BlueGooBlock(blockProperties(MapColor.COLOR_BLUE, 0.0F).lightLevel(state -> 9)));
+
+    public static final DeferredBlock<WhiteGooBlock> WHITE_GOO = BLOCKS.register("white_goo",
+            () -> new WhiteGooBlock(blockProperties(MapColor.SNOW, 0.0F).lightLevel(state -> 2)));
+
+    public static final DeferredBlock<BrownGooBlock> BROWN_GOO = BLOCKS.register("brown_goo",
+            () -> new BrownGooBlock(blockProperties(MapColor.COLOR_BROWN, 0.0F).lightLevel(state -> 14)));
+
     public static final DeferredItem<BlockItem> GREEN_GOO_ITEM = registerBlockItem(GREEN_GOO);
     public static final DeferredItem<BlockItem> ORANGE_GOO_ITEM = registerBlockItem(ORANGE_GOO);
     public static final DeferredItem<BlockItem> RED_GOO_ITEM = registerBlockItem(RED_GOO);
     public static final DeferredItem<BlockItem> PURPLE_GOO_ITEM = registerBlockItem(PURPLE_GOO);
+    public static final DeferredItem<BlockItem> BLUE_GOO_ITEM = registerBlockItem(BLUE_GOO);
+    public static final DeferredItem<BlockItem> WHITE_GOO_ITEM = registerBlockItem(WHITE_GOO);
+    public static final DeferredItem<BlockItem> BROWN_GOO_ITEM = registerBlockItem(BROWN_GOO);
 
     private GreyGooBlocks() {}
 
