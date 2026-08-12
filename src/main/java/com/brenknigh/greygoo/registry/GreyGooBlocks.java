@@ -3,6 +3,7 @@ package com.brenknigh.greygoo.registry;
 import com.brenknigh.greygoo.GreyGooMod;
 import com.brenknigh.greygoo.block.GreenInertBlock;
 import com.brenknigh.greygoo.block.OrangeWallBlock;
+import com.brenknigh.greygoo.block.PurpleGooBlock;
 import com.brenknigh.greygoo.block.RedCleanerBlock;
 
 import net.minecraft.world.item.BlockItem;
@@ -30,9 +31,13 @@ public final class GreyGooBlocks {
     public static final DeferredBlock<RedCleanerBlock> RED_GOO = BLOCKS.register("red_goo",
             () -> new RedCleanerBlock(blockProperties(MapColor.COLOR_RED, 0.0F).lightLevel(state -> 15)));
 
+    public static final DeferredBlock<PurpleGooBlock> PURPLE_GOO = BLOCKS.register("purple_goo",
+            () -> new PurpleGooBlock(blockProperties(MapColor.COLOR_PURPLE, 0.0F).lightLevel(state -> 9)));
+
     public static final DeferredItem<BlockItem> GREEN_GOO_ITEM = registerBlockItem(GREEN_GOO);
     public static final DeferredItem<BlockItem> ORANGE_GOO_ITEM = registerBlockItem(ORANGE_GOO);
     public static final DeferredItem<BlockItem> RED_GOO_ITEM = registerBlockItem(RED_GOO);
+    public static final DeferredItem<BlockItem> PURPLE_GOO_ITEM = registerBlockItem(PURPLE_GOO);
 
     private GreyGooBlocks() {}
 

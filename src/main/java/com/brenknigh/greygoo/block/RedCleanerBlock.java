@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,12 +18,30 @@ import net.minecraft.world.phys.BlockHitResult;
  * Red Goo (Cleaner) — converts other goo to itself, then self-destructs. Port of {@code BlockCleaner}.
  */
 public class RedCleanerBlock extends GooBlock {
+    /** Random despawn window: 0.5s–1.5s (10–30 ticks at 20 TPS). */
+    private static final int CLEAN_DELAY_MIN_TICKS = 10;
+    private static final int CLEAN_DELAY_MAX_TICKS = 30;
+
     public RedCleanerBlock(Properties properties) {
-        super(properties.randomTicks());
+        super(properties);
     }
 
     @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return defaultBlockState();
+    }
+
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        if (!level.isClientSide && !oldState.is(this)) {
+            int delay = CLEAN_DELAY_MIN_TICKS
+                    + level.getRandom().nextInt(CLEAN_DELAY_MAX_TICKS - CLEAN_DELAY_MIN_TICKS + 1);
+            level.scheduleTick(pos, this, delay);
+        }
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (canAct(level)) {
             clean(level, pos, random);
             level.removeBlock(pos, false);
@@ -33,6 +52,7 @@ public class RedCleanerBlock extends GooBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide && !player.isShiftKeyDown() && level instanceof ServerLevel serverLevel) {
             clean(serverLevel, pos, level.getRandom());
+            level.removeBlock(pos, false);
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;

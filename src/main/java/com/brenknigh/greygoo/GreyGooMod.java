@@ -46,6 +46,6 @@ public class GreyGooMod {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(GooProtection::init);
-        LOGGER.info("Grey Goo port loaded — place Green, Orange, and Red goo from the creative tab");
+        LOGGER.info("Grey Goo port loaded — place Green, Orange, Red, and Purple goo from the creative tab");
     }
 }

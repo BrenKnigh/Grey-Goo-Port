@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "dormant=false": { "model": "greygoo:block/purple_goo" },
+    "dormant=true": { "model": "greygoo:block/purple_goo" }
+  }
+}

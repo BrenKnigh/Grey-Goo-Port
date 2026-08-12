@@ -1,6 +1,7 @@
 {
-  "block.green_goo": "Green Goo",
-  "block.orange_goo": "Orange Goo",
-  "block.red_goo": "Red Goo",
+  "block.greygoo.green_goo": "Green Goo",
+  "block.greygoo.orange_goo": "Orange Goo",
+  "block.greygoo.red_goo": "Red Goo",
+  "block.greygoo.purple_goo": "Purple Goo",
   "itemGroup.greygoo": "Grey Goo"
 }

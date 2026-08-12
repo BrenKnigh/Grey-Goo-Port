@@ -43,7 +43,7 @@ Port in order of dependency / testability:
 1. [x] Green Goo (Inert) — anchor, no spread
 2. [x] Orange Wall — barrier spread from anchors
 3. [x] Red Goo (Cleaner) — counter to all goo
-4. Purple Goo (`BlockGreyGoo`) — basic spread + column collapse
+4. [x] Purple Goo (`BlockGreyGoo`) — basic spread + column collapse
 5. Grey Goo (`BlockGreyEater`) — main spreader, metadata tints, Cancer mutation
 6. Blue / White / Miner / Yellow goo — specialized eaters
 7. Destroyer chain: Cancer → Black → Cancer 2 → TGD → TGD Inert
